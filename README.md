@@ -19,7 +19,7 @@ This **Hospital Management System** is a relational database project designed to
 
 ## Technologies Used
 
-- Relational Database (MySQL, PostgreSQL, SQLite, or similar)  
+- Relational Database (PostgreSQL)  
 - SQL for database design and queries
 
 ---
@@ -45,3 +45,4 @@ This **Hospital Management System** is a relational database project designed to
 ## Purpose
 
 This project is designed to help understand and demonstrate practical database design and normalization techniques in a healthcare context.
+
