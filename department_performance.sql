@@ -1,0 +1,10 @@
+-- For each department, how many appointments were scheduled
+-- how much appointment revenue per department
+
+SELECT d.dept_id, d.dept_name, COUNT(a.appointment_id) as count_appt, SUM(payment_amount) AS Revenue FROM appointment a
+JOIN doctor doc ON  a.doct_id = doc.doct_id
+JOIN department d ON doc.dept_id = d.dept_id
+
+WHERE a.appointment_date IS NOT NULL AND a.appointment_status = 'Scheduled'
+GROUP BY d.dept_id, d.dept_name
+ORDER BY dept_id
