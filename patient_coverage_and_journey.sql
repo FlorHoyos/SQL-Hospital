@@ -14,6 +14,21 @@ FROM Appointment a
 JOIN doctor d ON d.doct_id = a.doct_id
 ORDER BY a.patient_id, first_appt ASC, a.appointment_id ASC;
 
+WITH first_appt AS (
+    SELECT patient_id, MIN(appointment_date) AS first_appt
+    FROM appointment
+    GROUP BY patient_id
+)
+SELECT f.patient_id,
+       f.first_appt::date,
+       d.doct_id,
+       d.fname,
+       d.lname
+FROM first_appt f
+JOIN appointment a ON a.patient_id = f.patient_id
+ AND a.appointment_date = f.first_appt
+JOIN doctor d ON d.doct_id = a.doct_id
+ORDER BY f.patient_id;
 
 
 
